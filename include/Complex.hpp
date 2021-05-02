@@ -7,7 +7,7 @@ public:
 
   char vch; // virtual char, if this complex value is a symbol
 
-  Complex(int real, int imag = 0);
+  Complex(int real = 0, int imag = 0);
   Complex(char vch);
   inline bool isvirtual() const;
   bool operator==(const Complex& other) const;
