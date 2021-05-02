@@ -16,7 +16,7 @@ public:
   Node();
 
   static Node* makeTerminal(Complex terminal);
-  inline bool isTerminal() const;
+  bool isTerminal() const;
 
   static Node* makeVariable(int variable);
   int countNodes() const;

@@ -9,7 +9,7 @@ public:
 
   Complex(int real = 0, int imag = 0);
   Complex(char vch);
-  inline bool isvirtual() const;
+  bool isvirtual() const;
   bool operator==(const Complex& other) const;
   bool operator<(const Complex& other) const;
   bool operator>(const Complex& other) const;
