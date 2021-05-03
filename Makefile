@@ -12,7 +12,10 @@ obj/Node.o: include/Node.hpp src/Node.cpp
 obj/main.o: src/main.cpp
 	$(cc) $(cflag) src/main.cpp -c -o obj/main.o
 
-bin/main: obj/Complex.o obj/Node.o obj/main.o
+obj/Util.o: src/Util.cpp include/Util.hpp
+	$(cc) $(cflag) src/Util.cpp -c -o obj/Util.o
+
+bin/main: obj/Complex.o obj/Node.o obj/main.o obj/Util.o
 	$(cc) $(cflag) $^ -o $@
 
 clean:

@@ -13,7 +13,7 @@ Complex::Complex(char vch) {
 }
 
 bool Complex::isvirtual() const {
-  return this->vch == 0;
+  return this->vch != 0;
 }
 
 bool Complex::operator==(const Complex& other) const {
@@ -29,4 +29,18 @@ bool Complex::operator<(const Complex& other) const {
 
 bool Complex::operator>(const Complex& other) const {
   return !(*this == other) && !(*this < other);
+}
+
+std::ostream& operator<<(std::ostream& os, const Complex& c) {
+  if(c.isvirtual()) {
+    os << "(Complex Virtual " << c.vch << ")";
+  } else {
+    if(c.imag == 0) {
+      os << "(Complex " << c.real << ")";
+    } else {
+      os << "(Complex " << c.real << " + " << c.imag << "i)"; 
+    }
+  }
+
+  return os;
 }

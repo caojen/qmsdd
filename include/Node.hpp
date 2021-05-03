@@ -20,4 +20,9 @@ public:
 
   static Node* makeVariable(int variable);
   int countNodes() const;
+
+  // algorithm entry
+  // table: 2Darray(x * y)
+  // n: the variable count
+  static Node* initWithTable(char** table, int x, int y, int n);
 };

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 class Complex {
 public:
   int real;
@@ -13,4 +15,6 @@ public:
   bool operator==(const Complex& other) const;
   bool operator<(const Complex& other) const;
   bool operator>(const Complex& other) const;
+
+  friend std::ostream& operator<<(std::ostream& os, const Complex& c);
 };

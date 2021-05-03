@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 
+#include "Node.hpp"
+
 int main(int argc, char** argv) {
   if(argc <= 1) {
     std::cout << "Please provide test file." << std::endl;
@@ -36,6 +38,8 @@ int main(int argc, char** argv) {
     }
     std::cout << std::endl;
   }
+
+  Node* graph = Node::initWithTable(table, fn, c, n);
 
   return 0;
 }
