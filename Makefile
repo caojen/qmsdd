@@ -15,6 +15,9 @@ obj/main.o: src/main.cpp
 obj/Util.o: src/Util.cpp include/Util.hpp
 	$(cc) $(cflag) src/Util.cpp -c -o obj/Util.o
 
+obj/BoolFunction.o: src/BoolFunction.cpp include/BoolFunction.hpp
+	$(cc) $(cflag) src/BoolFunction.cpp -c -o obj/BoolFunction.o
+
 bin/main: obj/Complex.o obj/Node.o obj/main.o obj/Util.o
 	$(cc) $(cflag) $^ -o $@
 
