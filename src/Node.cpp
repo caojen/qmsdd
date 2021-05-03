@@ -1,3 +1,5 @@
+#include <set>
+
 #include "Node.hpp"
 #include "Util.hpp"
 
@@ -58,14 +60,12 @@ Node* Node::initWithTable(char** table, int x, int y, int n) {
       continue;
     }
     print_graph(root, std::string("#") + (char)(line + 1 + '0') + std::string(" "));
+    std::cout << "count nodes = " << root->countNodes() << std::endl;
 
-    // if(!root->isTerminal()) {
-    if(false) {
-      if(ret == nullptr) {
-        ret = root;
-      } else {
-        ret = combine(ret, root);
-      }
+    if(ret == nullptr) {
+      ret = root;
+    } else {
+      ret = combine(ret, root);
     }
   }
   return ret;
