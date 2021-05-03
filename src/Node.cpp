@@ -52,10 +52,15 @@ Node* Node::initWithTable(char** table, int x, int y, int n) {
         insert_terminal(root, col, table[line][col], n);
       }
     }
-    print_graph(root);
     simplify(root);
+    if(root->isTerminal()) {
+      std::cout << "#" << line + 1 << " is TRUE. Ignored..." << std::endl;
+      continue;
+    }
+    print_graph(root, std::string("#") + (char)(line + 1 + '0') + std::string(" "));
 
-    if(!root->isTerminal()) {
+    // if(!root->isTerminal()) {
+    if(false) {
       if(ret == nullptr) {
         ret = root;
       } else {
@@ -64,4 +69,54 @@ Node* Node::initWithTable(char** table, int x, int y, int n) {
     }
   }
   return ret;
+}
+
+bool Node::operator==(const Node& other) const {
+  if(this == &other) {
+    return true;
+  }
+
+  bool this_is_terminal = this->isTerminal();
+  bool other_is_terminal = other.isTerminal();
+
+  if(this_is_terminal != other_is_terminal) {
+    return false;
+  }
+
+  if(this_is_terminal) {
+    return this->terminal == other.terminal;
+  } else {
+    if(this->variable != other.variable) {
+      return false;
+    } else {
+      if(this->zero == nullptr) {
+        if(other.zero != nullptr) {
+          return false;
+        }
+      } else {
+        if(other.zero == nullptr) {
+          return false;
+        } else {
+          if((*this->zero == *other.zero) == false) {
+            return false;
+          }
+        }
+      }
+
+      if(this->one == nullptr) {
+        if(other.one != nullptr) {
+          return false;
+        }
+      } else {
+        if(other.one == nullptr) {
+          return false;
+        } else {
+          if((*this->one == *other.one) == false) {
+            return false;
+          }
+        }
+      }
+      return true;
+    }
+  }
 }

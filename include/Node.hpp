@@ -25,4 +25,6 @@ public:
   // table: 2Darray(x * y)
   // n: the variable count
   static Node* initWithTable(char** table, int x, int y, int n);
+
+  bool operator==(const Node& other) const;
 };
