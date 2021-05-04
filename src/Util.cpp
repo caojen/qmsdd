@@ -106,9 +106,21 @@ Node* combine(std::vector<Node*>& roots) {
   }
   
   std::vector<BoolFunction*> bfs;
-  for(auto root: roots) {
+  std::vector<int> nodeCounts;
+  for(auto& root: roots) {
     auto bf = BoolFunction::initFromNode(root);
     bfs.push_back(bf);
+    int count = root->countNodes();
+    nodeCounts.push_back(count);
+  }
+
+  BoolFunction* ret = bfs[0];
+  std::cout << "init ret(bfs[0]) = " << *ret << std::endl;
+  int size = bfs.size();
+  for(int i = 1; i < size; i++) {
+    std::cout << "next bfs" << i << " " << *bfs[i] << std::endl;
+    *ret = *ret * *bfs[i];
+    std::cout << "merge to " << *ret << std::endl;
   }
 
   return nullptr;

@@ -48,11 +48,47 @@ BoolFunction* BoolFunction::initFromNode(Node* root) {
 }
 
 void BoolFunction::simplify() {
-
+  std::cout << "BoolFunction::simplify is unimplemented." << std::endl;
 }
 
-BoolFunction BoolFunction::operator*(const BoolFunction& other) const {
+BoolFunction BoolFunction::operator*(const BoolFunction& other) {
+  if(this->contains(other)) {
+    return *this;
+  }
+  if(other.contains(*this)) {
+    return other;
+  }
+
+  for(auto& statement: other.statements) {
+    for(auto& self: this->statements) {
+      for(auto& atom: statement.atoms) {
+        if(!self.contains(atom)) {
+          self.atoms.push_back(atom);
+        }
+      }
+      std::sort(self.atoms.begin(), self.atoms.end());
+    }
+  }
+
   return *this;
+}
+
+bool BoolFunction::contains(const BoolFunction& other) const {
+  for(auto& statement: other.statements) {
+    bool found = false;
+    for(auto& self: this->statements) {
+      if(self.contains(statement)) {
+        found = true;
+        break;
+      }
+    }
+
+    if(!found) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 Statement::Statement() {
@@ -80,9 +116,39 @@ std::ostream& operator<<(std::ostream& os, const Statement& self) {
   return os;
 }
 
+bool Statement::contains(const Statement& other) const {
+  for(auto& atom: other.atoms) {
+    bool found = false;
+    for(auto& self: this->atoms) {
+      if(self == atom) {
+        found = true;
+        break;
+      }
+    }
+    if(!found) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+bool Statement::contains(const Atom& other) const {
+  for(auto& atom: this->atoms) {
+    if(atom == other) {
+      return true;
+    }
+  }
+  return false;
+}
+
 Atom::Atom(int variable, bool true_or_false) {
   this->true_or_false = true_or_false;
   this->variable = variable;
+}
+
+bool Atom::operator==(const Atom& other) const {
+  return this->true_or_false == other.true_or_false && this->variable == other.variable;
 }
 
 std::ostream& operator<<(std::ostream& os, const Atom& self) {
@@ -91,4 +157,9 @@ std::ostream& operator<<(std::ostream& os, const Atom& self) {
   }
   os << "X" << self.variable;
   return os;
+}
+
+bool Atom::operator<(const Atom& other) const {
+  return this->variable < other.variable ||
+    this->variable == other.variable && this->true_or_false == true;
 }

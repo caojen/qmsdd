@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 #include "Node.hpp"
 #include "Util.hpp"
@@ -21,7 +22,8 @@ public:
   static BoolFunction* initFromNode(Node* root);
   void simplify();
 
-  BoolFunction operator*(const BoolFunction& other) const;
+  BoolFunction operator*(const BoolFunction& other);
+  bool contains(const BoolFunction& other) const;
 };
 
 class Statement {
@@ -32,6 +34,8 @@ public:
   Statement();
   void append(const Atom& atom);
   friend std::ostream& operator<<(std::ostream& os, const Statement& self);
+  bool contains(const Statement& other) const;
+  bool contains(const Atom& other) const;
 };
 
 class Atom {
@@ -40,5 +44,7 @@ public:
   int variable;
 
   Atom(int variable, bool true_or_false = true);
+  bool operator==(const Atom& other) const;
   friend std::ostream& operator<<(std::ostream& os, const Atom& self);
+  bool operator<(const Atom& other) const;
 };
