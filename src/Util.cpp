@@ -3,6 +3,7 @@
 #include <string>
 
 #include "Util.hpp"
+#include "BoolFunction.hpp"
 
 void insert_terminal(Node* root, int path, Complex terminal, int n) {
   if(n == 1) {
@@ -97,7 +98,19 @@ void simplify(Node*& root) {
   }
 }
 
-Node* combine(Node* ret, Node* root) {
+Node* combine(std::vector<Node*>& roots) {
+  if(roots.size() == 0) {
+    return nullptr;
+  } else if(roots.size() == 1) {
+    return roots[0];
+  }
+  
+  std::vector<BoolFunction*> bfs;
+  for(auto root: roots) {
+    auto bf = BoolFunction::initFromNode(root);
+    bfs.push_back(bf);
+  }
+
   return nullptr;
 }
 

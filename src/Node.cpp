@@ -44,7 +44,7 @@ int Node::countNodes() const {
 }
 
 Node* Node::initWithTable(char** table, int x, int y, int n) {
-  Node* ret = nullptr;
+  std::vector<Node*> roots;
   for(int line = 0; line < x; line++) {
     Node* root = Node::makeVariable(1);
     for(int col = 0; col < y; col++) {
@@ -61,14 +61,9 @@ Node* Node::initWithTable(char** table, int x, int y, int n) {
     }
     print_graph(root, std::string("#") + (char)(line + 1 + '0') + std::string(" "));
     std::cout << "count nodes = " << root->countNodes() << std::endl;
-
-    if(ret == nullptr) {
-      ret = root;
-    } else {
-      ret = combine(ret, root);
-    }
+    roots.push_back(root);
   }
-  return ret;
+  return combine(roots);
 }
 
 bool Node::operator==(const Node& other) const {

@@ -22,6 +22,39 @@ std::ostream& operator<<(std::ostream& os, const BoolFunction& self) {
   return os;
 }
 
+void init_from_node_help(Node* root, Statement statement, BoolFunction* bf) {
+  if(root->isTerminal()) {
+    bf->append(statement);
+  } else {
+    if(root->zero) {
+      Statement f = statement;
+      f.append(Atom(root->variable, false));
+      init_from_node_help(root->zero, f, bf);
+    }
+    if(root->one) {
+      Statement f = statement;
+      f.append(Atom(root->variable, true));
+      init_from_node_help(root->one, f, bf);
+    }
+  }
+}
+
+BoolFunction* BoolFunction::initFromNode(Node* root) {
+  BoolFunction* bf = new BoolFunction;
+  Statement statement;
+  init_from_node_help(root, statement, bf);
+  std::cout << "create bf: " << *bf << std::endl;
+  return bf;
+}
+
+void BoolFunction::simplify() {
+
+}
+
+BoolFunction BoolFunction::operator*(const BoolFunction& other) const {
+  return *this;
+}
+
 Statement::Statement() {
   this->true_or_false = true;
 }
@@ -56,6 +89,6 @@ std::ostream& operator<<(std::ostream& os, const Atom& self) {
   if(self.true_or_false == false) {
     os << "~";
   }
-  os << self.variable;
+  os << "X" << self.variable;
   return os;
 }
