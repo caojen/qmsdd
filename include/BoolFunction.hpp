@@ -8,6 +8,7 @@ class Statement;
 class Atom;
 
 class BoolFunction {
+public:
   std::vector<Statement> statements;
 
   BoolFunction();
