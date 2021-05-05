@@ -24,13 +24,7 @@ void input_table(char* filename) {
       fstream >> table[f][y];
     }
   }
-  // std::cout << "Receive Table: " << fn << "*" << c << std::endl;
-  // for(int f = 0; f < fn; f++) {
-  //   for(int y = 0; y < c; y++) {
-  //     std::cout << table[f][y] << ' ';
-  //   }
-  //   std::cout << std::endl;
-  // }
+
   auto start_time = std::chrono::steady_clock::now();
   Node* graph = Node::initWithTable(table, fn, c, n);
   auto end_time = std::chrono::steady_clock::now();
