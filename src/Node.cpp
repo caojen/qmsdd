@@ -68,11 +68,11 @@ Node* Node::initWithTable(char** table, int x, int y, int n) {
     }
     simplify(root);
     if(root->isTerminal()) {
-      std::cout << "#" << line + 1 << " is TRUE. Ignored..." << std::endl;
+      // std::cout << "#" << line + 1 << " is TRUE. Ignored..." << std::endl;
       continue;
     }
-    print_graph(root, std::string("#") + (char)(line + 1 + '0') + std::string(" "));
-    std::cout << "count nodes = " << root->countNodes() << std::endl;
+    // print_graph(root, std::string("#") + (char)(line + 1 + '0') + std::string(" "));
+    // std::cout << "count nodes = " << root->countNodes() << std::endl;
     roots.push_back(root);
   }
   return combine(roots);

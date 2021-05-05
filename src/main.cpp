@@ -1,17 +1,11 @@
 #include <iostream>
 #include <fstream>
+#include <chrono>
 
 #include "Node.hpp"
 
-int main(int argc, char** argv) {
-  if(argc <= 1) {
-    std::cout << "Please provide test file." << std::endl;
-    return 1;
-  }
-
-  char* filename = argv[1];
+void input_table(char* filename) {
   std::fstream fstream(filename);
-  std::cout << "Detected File: " << filename << std::endl;
   int n;
   int fn;
   fstream >> n >> fn;
@@ -30,17 +24,33 @@ int main(int argc, char** argv) {
       fstream >> table[f][y];
     }
   }
+  // std::cout << "Receive Table: " << fn << "*" << c << std::endl;
+  // for(int f = 0; f < fn; f++) {
+  //   for(int y = 0; y < c; y++) {
+  //     std::cout << table[f][y] << ' ';
+  //   }
+  //   std::cout << std::endl;
+  // }
+  auto start_time = std::chrono::steady_clock::now();
+  Node* graph = Node::initWithTable(table, fn, c, n);
+  auto end_time = std::chrono::steady_clock::now();
+  std::chrono::duration<double, std::micro> elapsed = end_time - start_time;
+  int size = graph->countNodes();
+  std::cout << "Done.. size = " << size << std::endl;
+  std::cout << "time = " << elapsed.count() << "us" << std::endl;
+}
 
-  std::cout << "Receive Table: " << fn << "*" << c << std::endl;
-  for(int f = 0; f < fn; f++) {
-    for(int y = 0; y < c; y++) {
-      std::cout << table[f][y] << ' ';
-    }
-    std::cout << std::endl;
+int main(int argc, char** argv) {
+  if(argc <= 1) {
+    std::cout << "Please provide test file." << std::endl;
+    return 1;
   }
 
-  Node* graph = Node::initWithTable(table, fn, c, n);
-  int size = graph->countNodes();
-  std::cout << "Done.. size = " << size << std::endl; 
-  return 0;
+  char* filename = argv[1];
+  std::cout << "Detected File: " << filename << std::endl;
+  if(strlen(filename) < 5 || std::string(filename + strlen(filename) - 5) == "table") {
+    input_table(filename);
+  } else {
+    // *.real file
+  }
 }

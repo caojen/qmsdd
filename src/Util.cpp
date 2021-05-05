@@ -157,18 +157,20 @@ Node* combine(std::vector<Node*>& roots) {
   }
 
   BoolFunction* ret = bfs[0];
-  std::cout << "init ret(bfs[0]) = " << *ret << std::endl;
+  // std::cout << "init ret(bfs[0]) = " << *ret << std::endl;
   int size = bfs.size();
   for(int i = 1; i < size; i++) {
-    std::cout << "next bfs" << i << " " << *bfs[i] << std::endl;
+    // std::cout << "next bfs" << i << " " << *bfs[i] << std::endl;
     *ret = *ret * *bfs[i];
-    std::cout << "merge to " << *ret << std::endl;
+    // std::cout << "merge to " << *ret << std::endl;
   }
 
+  std::cout << "merge all bf done: " << *ret << std::endl;
+
   Node* r = ret->convertToNode();
-  print_graph(r, "after merge: ");
+  // print_graph(r, "after merge: ");
   simplify(r);
-  print_graph(r, "after simplify: ");
+  // print_graph(r, "after simplify: ");
   return r;
 }
 
