@@ -57,6 +57,7 @@ int Node::countNodes() const {
 
 Node* Node::initWithTable(char** table, int x, int y, int n) {
   std::vector<Node*> roots;
+  auto start_time = std::chrono::steady_clock::now();
   for(int line = 0; line < x; line++) {
     Node* root = Node::makeVariable(1);
     for(int col = 0; col < y; col++) {
@@ -68,14 +69,21 @@ Node* Node::initWithTable(char** table, int x, int y, int n) {
     }
     simplify(root);
     if(root->isTerminal()) {
-      // std::cout << "#" << line + 1 << " is TRUE. Ignored..." << std::endl;
       continue;
     }
-    // print_graph(root, std::string("#") + (char)(line + 1 + '0') + std::string(" "));
-    // std::cout << "count nodes = " << root->countNodes() << std::endl;
     roots.push_back(root);
   }
-  return combine(roots);
+  auto end_time = std::chrono::steady_clock::now();
+  std::chrono::duration<double, std::micro> elapsed = end_time - start_time;
+  std::cout << "Read all graphs, construct and simplify done. Time = " << elapsed.count() << "us" << std::endl;
+
+  start_time = std::chrono::steady_clock::now();
+  Node* ret = combine(roots);
+  end_time = std::chrono::steady_clock::now();
+  elapsed = end_time - start_time;
+  std::cout << "Combine all graphs done. Time = " << elapsed.count() << "us" << std::endl;
+
+  return ret;
 }
 
 bool Node::operator==(const Node& other) const {

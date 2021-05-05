@@ -30,8 +30,8 @@ void input_table(char* filename) {
   auto end_time = std::chrono::steady_clock::now();
   std::chrono::duration<double, std::micro> elapsed = end_time - start_time;
   int size = graph->countNodes();
-  std::cout << "Done.. size = " << size << std::endl;
-  std::cout << "time = " << elapsed.count() << "us" << std::endl;
+  std::cout << "Done.. Final Size = " << size << std::endl;
+  std::cout << "Total Time = " << elapsed.count() << "us" << std::endl;
 }
 
 int main(int argc, char** argv) {

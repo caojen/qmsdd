@@ -43,7 +43,7 @@ BoolFunction* BoolFunction::initFromNode(Node* root) {
   BoolFunction* bf = new BoolFunction;
   Statement statement;
   init_from_node_help(root, statement, bf);
-  std::cout << "create bf: " << *bf << std::endl;
+  // std::cout << "create bf: " << *bf << std::endl;
   return bf;
 }
 
