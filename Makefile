@@ -1,5 +1,6 @@
 cc = g++
-cflag = -I./include -g -std=c++11
+# cflag = -I./include -g -std=c++11
+cflag = -I./include -O2 -std=c++11
 
 all: bin/main
 
