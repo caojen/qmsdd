@@ -39,8 +39,20 @@ Node* Node::makeVariable(int variable) {
   return ret;
 }
 
+int count_nodes_help(const Node* root, std::set<const Node*>& set) {
+  if(root == nullptr || root->isTerminal() || set.find(root) != set.end()) {
+    return 0;
+  }
+  set.insert(root);
+  int one = count_nodes_help(root->one, set);
+  int zero = count_nodes_help(root->zero, set);
+
+  return 1 + one + zero;
+}
+
 int Node::countNodes() const {
-  return 0;
+  std::set<const Node*> set;
+  return count_nodes_help(this, set);
 }
 
 Node* Node::initWithTable(char** table, int x, int y, int n) {

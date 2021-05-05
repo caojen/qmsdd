@@ -163,3 +163,53 @@ bool Atom::operator<(const Atom& other) const {
   return this->variable < other.variable ||
     this->variable == other.variable && this->true_or_false == true;
 }
+
+Node* BoolFunction::convertToNode() const {
+  Node* ret = nullptr;
+  Node* one = Node::makeTerminal(1);
+
+  if(this->statements.size() == 0) {
+    return ret;
+  }
+
+  for(auto& statement: this->statements) {
+    Node* cur = ret;
+    bool true_or_false = false;
+    bool first = true;
+
+    for(auto& atom: statement.atoms) {
+      if(ret == nullptr) {
+        ret = Node::makeVariable(atom.variable);
+        cur = ret;
+        true_or_false = atom.true_or_false;
+        first = false;
+      } else {
+        if(first == true) {
+          true_or_false = atom.true_or_false;
+          first = false;
+          continue;
+        }
+        if(true_or_false == true) {
+          if(cur->one == nullptr) {
+            cur->one = Node::makeVariable(atom.variable);
+          }
+          cur = cur->one;
+        } else {
+          if(cur->zero == nullptr) {
+            cur->zero = Node::makeVariable(atom.variable);
+          }
+          cur = cur->zero;
+        }
+        true_or_false = atom.true_or_false;
+      }
+    }
+
+    if(true_or_false == true) {
+      cur->one = one;
+    } else {
+      cur->zero = one;
+    }
+  }
+
+  return ret;
+}

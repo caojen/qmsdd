@@ -40,6 +40,7 @@ int main(int argc, char** argv) {
   }
 
   Node* graph = Node::initWithTable(table, fn, c, n);
-
+  int size = graph->countNodes();
+  std::cout << "Done.. size = " << size << std::endl; 
   return 0;
 }

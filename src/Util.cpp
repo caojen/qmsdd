@@ -1,6 +1,8 @@
 #include <queue>
 #include <stack>
 #include <string>
+#include <map>
+#include <set>
 
 #include "Util.hpp"
 #include "BoolFunction.hpp"
@@ -50,19 +52,23 @@ void simplify(Node*& root) {
     Node* node = queue.front(); queue.pop();
     stack.push(node);
 
-    if(!node->zero->isTerminal()) {
-      queue.push(node->zero);
-    } else if(node->zero->terminal == 0) {
-      node->zero = nullptr;
-    } else {
-      node->zero = one;
+    if(node->zero != nullptr) {
+      if(!node->zero->isTerminal()) {
+        queue.push(node->zero);
+      } else if(node->zero->terminal == 0) {
+        node->zero = nullptr;
+      } else {
+        node->zero = one;
+      }
     }
-    if(!node->one->isTerminal()) {
-      queue.push(node->one);
-    } else if(node->one->terminal == 0) {
-      node->one = nullptr;
-    } else {
-      node->one = one;
+    if(node->one != nullptr) {
+      if(!node->one->isTerminal()) {
+        queue.push(node->one);
+      } else if(node->one->terminal == 0) {
+        node->one = nullptr;
+      } else {
+        node->one = one;
+      }
     }
   }
 
@@ -96,6 +102,42 @@ void simplify(Node*& root) {
       }
     }
   }
+
+  // map: level -> level's nodes
+  std::map<Node*, std::set<Node*>> nodes;
+  queue.push(root);
+  while(!queue.empty()) {
+    Node* node = queue.front(); queue.pop();
+    if(node == nullptr || node->isTerminal()) {
+      continue;
+    }
+
+    if(node->one != nullptr && node->one->isTerminal() == false) {
+      queue.push(node->one);
+      nodes[node->one].insert(node);
+    }
+    if(node->zero != nullptr && node->zero->isTerminal() == false) {
+      queue.push(node->zero);
+      nodes[node->zero].insert(node);
+    }
+  }
+
+  for(auto itx = nodes.begin(); itx != nodes.end(); ++itx) {
+    for(auto ity = itx; ity != nodes.end(); ++ity) {
+      if(itx->first == ity->first) {
+        continue;
+      }
+      if(*itx->first == *ity->first) {
+        for(auto& parent: ity->second) {
+          if(parent->one == ity->first) {
+            parent->one = itx->first;
+          } else if(parent->zero == ity->first) {
+            parent->zero = itx->first;
+          }
+        }
+      }
+    }
+  }
 }
 
 Node* combine(std::vector<Node*>& roots) {
@@ -123,7 +165,11 @@ Node* combine(std::vector<Node*>& roots) {
     std::cout << "merge to " << *ret << std::endl;
   }
 
-  return nullptr;
+  Node* r = ret->convertToNode();
+  print_graph(r, "after merge: ");
+  simplify(r);
+  print_graph(r, "after simplify: ");
+  return r;
 }
 
 void print_graph(Node* root, std::string prefix = "") {

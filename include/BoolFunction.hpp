@@ -24,6 +24,8 @@ public:
 
   BoolFunction operator*(const BoolFunction& other);
   bool contains(const BoolFunction& other) const;
+
+  Node* convertToNode() const;
 };
 
 class Statement {
