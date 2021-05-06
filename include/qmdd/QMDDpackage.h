@@ -53,7 +53,7 @@
 
 // edge and node definitions 
 
-typedef struct QMDDnode *QMDDnodeptr; 
+typedef struct QMDDnode* QMDDnodeptr; 
 
 typedef struct QMDDedge
 {

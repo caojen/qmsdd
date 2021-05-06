@@ -219,7 +219,7 @@ void QMDDchangeNonterminal(short v,QMDDedge edge[],QMDDnodeptr p)
   
   if(e.w != 1) {
    // normalization factor changed! adjust renormalization factor
-   if (debugSift) { printf("Debug: adjusting renormalization factor of node %d. From ", (intptr_t) e.p); Cprint(Cvalue(e.p->renormFactor));}
+   if (debugSift) { printf("Debug: adjusting renormalization factor of node %ld. From ", (intptr_t) e.p); Cprint(Cvalue(e.p->renormFactor));}
    
     RenormFactorCount++;
    
@@ -241,7 +241,7 @@ void QMDDchangeNonterminal(short v,QMDDedge edge[],QMDDnodeptr p)
   olde=e;
   e=QMDDutLookup(e);  // look it up in the unique tables
   if(olde.p!=e.p) { // found copy of node in the unique table! (this shall never happen!)
-    printf("??? node changed by Unique table-lookup. transfer refs from old vertex (%d: %d) to new vertex (%d: %d). ", (intptr_t) olde.p, olde.p->ref, (intptr_t) e.p, e.p->ref);  
+    printf("??? node changed by Unique table-lookup. transfer refs from old vertex (%ld: %d) to new vertex (%ld: %d). ", (intptr_t) olde.p, olde.p->ref, (intptr_t) e.p, e.p->ref);  
     QMDDpause();
     QMDDdebugnode(e.p);
     
@@ -806,7 +806,7 @@ void SJTalgorithm(QMDDedge a, int n){
     
     // Output permutation ( if new min or max)
     for (int i=1; printFlag && i<= n; i++)
-	printf("%d (%d), ", perm[i], QMDDorder[i-1]);
+	printf("%d (%ld), ", perm[i], QMDDorder[i-1]);
     
     m=n;
     
@@ -842,7 +842,7 @@ void SJTalgorithm(QMDDedge a, int n){
   }
     
     for (int i=1; i<= n; i++)
-	printf("%d (%d), ", perm[i], QMDDorder[i-1]);
+	printf("%d (%ld), ", perm[i], QMDDorder[i-1]);
     printf("%d \n", siftingCostFunction(a));
   
     QMDDinitComputeTable();

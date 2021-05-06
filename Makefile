@@ -5,7 +5,7 @@ cflag = -I./include -I./include/qmdd -O3 -std=c++11
 objs = obj/Complex.o obj/Node.o obj/main.o obj/Util.o obj/BoolFunction.o obj/RealParser.o \
 obj/qmdd/qcost.o obj/qmdd/QMDDcircuit.o obj/qmdd/QMDDcomplex.o obj/qmdd/QMDDpackage.o obj/qmdd/QMDDreorder.o obj/qmdd/textFileUtilities.o obj/qmdd/timing.o
 
-all: bin/main
+all: bin/qmsdd
 
 obj/Complex.o: include/Complex.hpp src/Complex.cpp
 	$(cc) $(cflag) src/Complex.cpp -c -o obj/Complex.o
@@ -46,8 +46,8 @@ obj/qmdd/textFileUtilities.o: src/qmdd/textFileUtilities.c include/qmdd/textFile
 obj/qmdd/timing.o: src/qmdd/timing.c include/qmdd/timing.h
 	$(cc) $(cflag) $< -c -o $@
 
-bin/main: $(objs)
+bin/qmsdd: $(objs)
 	$(cc) $(cflag) $^ -o $@
 
 clean:
-	rm -rf obj/*.o obj/qmdd/*.o bin/main
+	rm -rf obj/*.o obj/qmdd/*.o bin/qmsdd
