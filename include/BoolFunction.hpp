@@ -22,7 +22,7 @@ public:
   static BoolFunction* initFromNode(Node* root);
   void simplify();
 
-  BoolFunction operator*(const BoolFunction& other);
+  BoolFunction bf_or(const BoolFunction& other);
   bool contains(const BoolFunction& other) const;
 
   Node* convertToNode() const;

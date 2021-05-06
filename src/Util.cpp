@@ -161,7 +161,7 @@ Node* combine(std::vector<Node*>& roots) {
   int size = bfs.size();
   for(int i = 1; i < size; i++) {
     // std::cout << "next bfs" << i << " " << *bfs[i] << std::endl;
-    *ret = *ret * *bfs[i];
+    *ret = ret->bf_or(*bfs[i]);
     // std::cout << "merge to " << *ret << std::endl;
   }
 
