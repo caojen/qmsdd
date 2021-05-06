@@ -43,6 +43,7 @@ int main(int argc, char** argv) {
   char* filename = argv[1];
   std::cout << "Detected File: " << filename << std::endl;
   if(strlen(filename) < 5 || std::string(filename + strlen(filename) - 5) == "table") {
+    // *.table file
     input_table(filename);
   } else {
     // *.real file
