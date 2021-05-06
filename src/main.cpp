@@ -34,6 +34,10 @@ void input_table(char* filename) {
   std::cout << "Total Time = " << elapsed.count() << "us" << std::endl;
 }
 
+void input_real(char* filename) {
+
+}
+
 int main(int argc, char** argv) {
   if(argc <= 1) {
     std::cout << "Please provide test file." << std::endl;
@@ -46,6 +50,6 @@ int main(int argc, char** argv) {
     // *.table file
     input_table(filename);
   } else {
-    // *.real file
+    input_real(filename);
   }
 }
