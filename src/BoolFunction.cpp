@@ -51,7 +51,7 @@ void BoolFunction::simplify() {
   std::cout << "BoolFunction::simplify is unimplemented." << std::endl;
 }
 
-BoolFunction BoolFunction::bf_or(const BoolFunction& other) {
+BoolFunction BoolFunction::bf_and(const BoolFunction& other) {
   if(this->contains(other)) {
     return *this;
   }

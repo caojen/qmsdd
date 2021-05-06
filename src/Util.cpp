@@ -157,12 +157,12 @@ Node* combine(std::vector<Node*>& roots) {
   }
 
   BoolFunction* ret = bfs[0];
-  // std::cout << "init ret(bfs[0]) = " << *ret << std::endl;
+  std::cout << "init ret(bfs[0]) = " << *ret << std::endl;
   int size = bfs.size();
   for(int i = 1; i < size; i++) {
-    // std::cout << "next bfs" << i << " " << *bfs[i] << std::endl;
-    *ret = ret->bf_or(*bfs[i]);
-    // std::cout << "merge to " << *ret << std::endl;
+    std::cout << "next bfs" << i << " " << *bfs[i] << std::endl;
+    *ret = ret->bf_and(*bfs[i]);
+    std::cout << "merge to " << *ret << std::endl;
   }
 
   std::cout << "merge all bf done: " << *ret << std::endl;
