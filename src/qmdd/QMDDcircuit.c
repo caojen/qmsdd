@@ -13,6 +13,7 @@ format.
 
 ***********************************************************************/
 
+#include <vector>
 #include "QMDDcircuit.h"
 /*******************************************************************
     Routines            
@@ -352,7 +353,7 @@ QMDDrevlibDescription QMDDrevlibHeader(FILE *infile)
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
-QMDDrevlibDescription QMDDcircuitRevlib(char *fname,QMDDrevlibDescription firstCirc, int match)
+QMDDrevlibDescription QMDDcircuitRevlib(char *fname,QMDDrevlibDescription firstCirc, int match, std::vector<QMDDedge>* edges)
 // reads a circuit in Revlib format: http://www.revlib.org/documentation.php 
 {
 	FILE *infile;
@@ -404,6 +405,7 @@ QMDDrevlibDescription QMDDcircuitRevlib(char *fname,QMDDrevlibDescription firstC
 
 		f=QMDDreadGate(infile,&circ);
 		if(f.p==NULL) break;
+		edges->push_back(f);
 
 		if(first) // first gate in circuit
 		{

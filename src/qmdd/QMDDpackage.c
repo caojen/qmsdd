@@ -1536,30 +1536,29 @@ QMDDedge QMDDmvlgate(complex mat[MAXRADIX][MAXRADIX],int n,int line[])
    e=QMDDmakeNonterminal(QMDDorder[z],em);  // target line
    return e;
 
-
-
+  // modified: needn't create all variables
    
-   for(z++;z<n;z++) // go through lines above target
-     if(line[w=QMDDorder[z]]>=0) //  control line above target in QMDD
-     {
-       temp=QMDDident(0,z-1);
-       for(i=0;i<Radix;i++)
-         for(j=0;j<Radix;j++)
-           if(i==j)
-           {
-             if(i==line[w]) em[i*Radix+j]=e;
-             else em[i*Radix+j]=temp;
-           }
-           else em[i*Radix+j]=QMDDzero;
-       e=QMDDmakeNonterminal(w,em);
-     } else // not connected
-     {
-       for(i1=0;i1<Radix;i1++)
-         for(i2=0;i2<Radix;i2++)
-           if(i1==i2) fm[i1+i2*Radix]=e; else fm[i1+i2*Radix]=QMDDzero;
-       e=QMDDmakeNonterminal(w,fm);
-     }
-   return(e);
+  //  for(z++;z<n;z++) // go through lines above target
+  //    if(line[w=QMDDorder[z]]>=0) //  control line above target in QMDD
+  //    {
+  //      temp=QMDDident(0,z-1);
+  //      for(i=0;i<Radix;i++)
+  //        for(j=0;j<Radix;j++)
+  //          if(i==j)
+  //          {
+  //            if(i==line[w]) em[i*Radix+j]=e;
+  //            else em[i*Radix+j]=temp;
+  //          }
+  //          else em[i*Radix+j]=QMDDzero;
+  //      e=QMDDmakeNonterminal(w,em);
+  //    } else // not connected
+  //    {
+  //      for(i1=0;i1<Radix;i1++)
+  //        for(i2=0;i2<Radix;i2++)
+  //          if(i1==i2) fm[i1+i2*Radix]=e; else fm[i1+i2*Radix]=QMDDzero;
+  //      e=QMDDmakeNonterminal(w,fm);
+  //    }
+  //  return(e);
 }
 
 

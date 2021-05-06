@@ -9,6 +9,7 @@
 #include "textFileUtilities.h"
 #include <string.h>
 #include <iostream>
+#include <vector>
 
 /*****************************************************************
 
@@ -20,7 +21,7 @@ int getlabel(char*,QMDDrevlibDescription,int*);
 QMDDedge QMDDreadGateFromString(char*, QMDDrevlibDescription*);
 QMDDedge QMDDreadGate(FILE*,QMDDrevlibDescription*);
 QMDDrevlibDescription QMDDrevlibHeader(FILE*);
-QMDDrevlibDescription QMDDcircuitRevlib(char *fname,QMDDrevlibDescription firstCirc,int match);
+QMDDrevlibDescription QMDDcircuitRevlib(char *fname,QMDDrevlibDescription firstCirc,int match, std::vector<QMDDedge>* edges = nullptr);
 // reads a circuit in Revlib format: http://www.revlib.org/documentation.php 
 
 

@@ -258,7 +258,7 @@ EXTERN FILE *outfile;
 // initalize global variables
 int Radix = 2;				// radix (default is 2) 
 int Nedge=4;				// no. of edges (default is 4) 
-int GCswitch = 1;           // set switch to 1 to enable garbage collection
+int GCswitch = 0;           // set switch to 1 to enable garbage collection
 int Smode = 1;				// S mode switch for spectral transformation
 					// Smode==1 0->+1 1->-1; Smode==0 0->0 1->1
 int RMmode =0;				// Select RM transformation mode
