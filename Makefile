@@ -1,5 +1,5 @@
 cc = g++
-cflag = -I./include -I./include/qmdd -g -std=c++11
+cflag = -I./include -I./include/qmdd -O3 -std=c++11
 
 objs = obj/Complex.o obj/Node.o obj/main.o obj/Util.o obj/BoolFunction.o obj/RealParser.o \
 obj/qmdd/qcost.o obj/qmdd/QMDDcircuit.o obj/qmdd/QMDDcomplex.o obj/qmdd/QMDDpackage.o obj/qmdd/QMDDreorder.o obj/qmdd/textFileUtilities.o obj/qmdd/timing.o
