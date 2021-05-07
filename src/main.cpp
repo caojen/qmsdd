@@ -36,6 +36,18 @@ void input_table(char* filename) {
 }
 
 void input_real(char* filename) {
+
+  std::vector<std::string> excepts; // except these filename
+  excepts.push_back("qFou7.real");
+
+  std::string f(filename);
+  for(auto& s: excepts) {
+    if(f.find(s) != std::string::npos) {
+      std::cout << "This file has been excepted..." << std::endl;
+      exit(0);
+    }
+  }
+
   RealParser realParser(filename);
   realParser.parse();
 }
