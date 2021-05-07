@@ -2,6 +2,13 @@
 
 + C++ Implementation of QMSDD
 
+## Dev Environment
+```bash
+# g++ --version
+Apple clang version 12.0.5 (clang-1205.0.22.9)
+Target: x86_64-apple-darwin20.4.0
+```
+
 ## build
 Use ``make`` to build the program ``./bin/main``
 
@@ -12,7 +19,7 @@ Use ``make`` to build the program ``./bin/main``
 ./bin/main <filename>
 ```
 
-filename format:
+*.table file format:
 ```
 <n, an Integer: variable count>
 <fn, an Integer: function count>
