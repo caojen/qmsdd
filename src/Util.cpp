@@ -187,3 +187,78 @@ void print_graph(Node* root, std::string prefix = "") {
     }
   }
 }
+
+void print_graph(QMDDedge& edge, std::string prefix = "") {
+  prefix += "(weight " + std::to_string(edge.w) + ")";
+  QMDDnode* node = edge.p;
+  if(node == nullptr || node->v == 255) {
+    std::cout << prefix << " -> T" << std::endl;;
+  } else {
+    prefix += " " + std::to_string(node->v) + " "; 
+    for(int i = 0; i < 4; i++) {
+      print_graph(node->e[i], prefix);
+    }
+  }
+  return;
+}
+
+Node* qmdd_to_qmsdd_node(QMDDedge& edge) {
+  // std::cout << "print_graph..." << std::endl;
+  // print_graph(edge);
+
+  Node* nodeOne = Node::makeTerminal(1);
+
+  if(edge.p == nullptr) {
+    return nullptr;
+  }
+
+  Node* ret = nullptr;
+  std::map<QMDDnode*, Node*> map;
+  std::queue<QMDDnode*> queue;
+  queue.push(edge.p);
+
+  while(queue.empty() == false) {
+    QMDDnode* qmnode = queue.front(); queue.pop();
+    int variable = qmnode->v;
+    Node* node = nullptr;
+    if(ret == nullptr) {
+      ret = Node::makeVariable(variable);
+      map[qmnode] = ret;
+      node = ret;
+    } else {
+      node = map[qmnode];
+    }
+
+    QMDDnode *one = nullptr, *zero = nullptr;
+    for(int i = 0; i < 4; i++) {
+      int w = qmnode->e[i].w;
+      if(w >= COMPLEXTSIZE) {
+        // something went wrong from qmddpackage
+        continue;
+      }
+      complex c = Cvalue(w);
+      if(c.r == 0 && c.i == 0) {
+        zero = qmnode->e[i].p;
+      } else {
+        one = qmnode->e[i].p;
+      }
+    }
+
+    if(zero != nullptr && zero->v != 255) {
+      queue.push(zero);
+      node->zero = Node::makeVariable(zero->v);
+      map[zero] = node->zero;
+    }
+
+    if(one != nullptr && one->v != 255) {
+      queue.push(one);
+      node->one = Node::makeVariable(one->v);
+      map[one] = node->one;
+    } else {
+      node->one = nodeOne;
+    }
+  }
+
+  // print_graph(ret);
+  return ret;
+}
