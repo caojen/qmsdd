@@ -411,6 +411,7 @@ QMDDrevlibDescription QMDDcircuitRevlib(char *fname,QMDDrevlibDescription firstC
 		{
 			first = 0;
 			e=f;
+			// edges->push_back(f);
 			QMDDincref(e);
 		}
 		else // second and subsequent gates
@@ -418,6 +419,7 @@ QMDDrevlibDescription QMDDcircuitRevlib(char *fname,QMDDrevlibDescription firstC
 			olde=e;
 			e=QMDDmultiply(f,e); // multiply QMDD for gate * QMDD for circuit to date
 
+			// edges->push_back(e);
 			QMDDincref(e);
 			QMDDdecref(olde);
 		}

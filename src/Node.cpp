@@ -47,7 +47,15 @@ int count_nodes_help(const Node* root, std::set<const Node*>& set) {
   int one = count_nodes_help(root->one, set);
   int zero = count_nodes_help(root->zero, set);
 
-  return 1 + one + zero;
+  int ret = 1;
+  if(root->one) {
+    ret += 1;
+  }
+  if(root->zero) {
+    ret += 1;
+  }
+
+  return ret + one + zero;
 }
 
 int Node::countNodes() const {

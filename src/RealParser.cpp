@@ -19,12 +19,13 @@ std::vector<Node*> RealParser::parse() {
   std::vector<Node*> ret;
   for(auto& edge: edges) {
     Node* node = qmdd_to_qmsdd_node(edge);
-    // print_graph(node, "");
+    // std::cout << "'" << std::endl;
+    // print_graph(edge, "");
     ret.push_back(node);
   }
 
-  for(int i = 0; i < ret.size(); i++) {
-    print_graph(ret[i], std::to_string(i) + ": ");
-  }
+  // for(int i = 0; i < ret.size(); i++) {
+  //   print_graph(ret[i], std::to_string(i) + ": ");
+  // }
   return ret;
 }
