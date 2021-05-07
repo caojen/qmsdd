@@ -4,12 +4,15 @@ RealParser::RealParser(const std::string& filename) {
   this->filename = filename;
 }
 
-Node* RealParser::parse() {
+std::vector<Node*> RealParser::parse() {
+  QMDDinit(0);
+
   QMDDrevlibDescription c;
   std::vector<QMDDedge> edges;
   char* fname = new char[this->filename.size() + 1];
   strcpy(fname, this->filename.c_str());
   QMDDcircuitRevlib(fname, c, 0, &edges);
+  std::cout << "Line Count: " << edges.size() << std::endl;
   delete[] fname;
-  return nullptr;
+  return std::vector<Node*>();
 }

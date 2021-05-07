@@ -15,5 +15,5 @@ class RealParser {
   std::map<std::string, int> variable_map;
 public:
   RealParser(const std::string& filename);
-  Node* parse();
+  std::vector<Node*> parse();
 };
