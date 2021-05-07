@@ -2,14 +2,14 @@
 
 RealParser::RealParser(const std::string& filename) {
   this->filename = filename;
-
-  std::fstream fstream(filename);
-  if(!fstream.is_open()) {
-    std::cout << "no such file: " << filename << std::endl;
-    exit(1);
-  }
 }
 
-Node* RealParser::parse() const {
+Node* RealParser::parse() {
+  QMDDrevlibDescription c;
+  std::vector<QMDDedge> edges;
+  char* fname = new char[this->filename.size() + 1];
+  strcpy(fname, this->filename.c_str());
+  QMDDcircuitRevlib(fname, c, 0, &edges);
+  delete[] fname;
   return nullptr;
 }

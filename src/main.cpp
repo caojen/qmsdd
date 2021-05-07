@@ -3,6 +3,7 @@
 #include <chrono>
 
 #include "Node.hpp"
+#include "RealParser.hpp"
 
 void input_table(char* filename) {
   std::fstream fstream(filename);
@@ -35,7 +36,8 @@ void input_table(char* filename) {
 }
 
 void input_real(char* filename) {
-
+  RealParser realParser(filename);
+  realParser.parse();
 }
 
 int main(int argc, char** argv) {

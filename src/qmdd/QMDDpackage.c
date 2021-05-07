@@ -1795,7 +1795,7 @@ void QMDDstatistics(void)
   printf("Compute table hit ratios: \naddition %d/%d %5.2f per cent \nmultiplication %d/%d %5.2f per cent \nKronecker product %d/%d %5.2f per ceent\n",CThit[add],CTlook[add],
         (float)CThit[add]/CTlook[add]*100,CThit[mult],CTlook[mult],(float)CThit[mult]/CTlook[mult]*100,CThit[kronecker],
         CTlook[kronecker],(float)CThit[kronecker]/CTlook[kronecker]*100);
-  printf("UniqueTable Collisions: %d, Matches: %d\n", UTcol, UTmatch);
+  printf("UniqueTable Collisions: %ld, Matches: %ld\n", UTcol, UTmatch);
   
 }
 
@@ -1898,6 +1898,6 @@ void QMDDprintActive(int n){
 }
 
 void throwException(const char message[], int exitCode){
-	printf(message);
+	// printf(message);
 	exit(exitCode);
 }
