@@ -2,79 +2,79 @@ Detected File: inputs/5qbitcode.real
 Line Count: 24
 merge all bf done: (X8 AND X7 AND X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 18
-Total Time = 0.0414383ms
+Total Time = 0.0392984s
 
 Detected File: inputs/7qbitcode.real
 Line Count: 18
 merge all bf done: (X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 14
-Total Time = 0.0277839ms
+Total Time = 0.0277039s
 
 Detected File: inputs/9qbitFigN1.real
 Line Count: 10
 merge all bf done: (X8 AND X7 AND X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 18
-Total Time = 0.0262331ms
+Total Time = 0.0268563s
 
 Detected File: inputs/9qbitFigN2.real
 Line Count: 40
 merge all bf done: (X16 AND X15 AND X14 AND X13 AND X12 AND X11 AND X10 AND X9 AND X8 AND X7 AND X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 34
-Total Time = 0.0277063ms
+Total Time = 0.0280012s
 
 Detected File: inputs/empty2.real
 Line Count: 5
 merge all bf done: (X0)
 Done.. Final Size = 2
-Total Time = 0.0271721ms
+Total Time = 0.0264155s
 
 Detected File: inputs/empty3.real
 Line Count: 2
 merge all bf done: (X0)
 Done.. Final Size = 2
-Total Time = 0.0271788ms
+Total Time = 0.0263342s
 
 Detected File: inputs/grover3_gen.real
 Line Count: 84
 merge all bf done: (X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 14
-Total Time = 0.0291054ms
+Total Time = 0.029159s
 
 Detected File: inputs/grover4_gen.real
 Line Count: 107
 merge all bf done: (X8 AND X7 AND X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 18
-Total Time = 0.029944ms
+Total Time = 0.0301828s
 
 Detected File: inputs/grover5_gen.real
 Line Count: 132
 merge all bf done: (X10 AND X9 AND X8 AND X7 AND X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 22
-Total Time = 0.0320375ms
+Total Time = 0.0321116s
 
 Detected File: inputs/qFou3.real
 Line Count: 9
 merge all bf done: (X2 AND X1 AND X0)
 Done.. Final Size = 6
-Total Time = 0.027139ms
+Total Time = 0.0269013s
 
 Detected File: inputs/qFou4.real
 Line Count: 16
 merge all bf done: (X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 8
-Total Time = 0.032518ms
+Total Time = 0.0327452s
 
 Detected File: inputs/qFou5.real
 Line Count: 21
 merge all bf done: (X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 10
-Total Time = 0.068203ms
+Total Time = 0.0685375s
 
 Detected File: inputs/qFou6.real
 Line Count: 30
 merge all bf done: (X5 AND X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 12
-Total Time = 0.296148ms
+Total Time = 0.293574s
 
 Detected File: inputs/qFou7.real
 This file has been excepted...
@@ -83,53 +83,53 @@ Detected File: inputs/sym2.real
 Line Count: 3
 merge all bf done: (X1 AND X0)
 Done.. Final Size = 4
-Total Time = 0.0261377ms
+Total Time = 0.0275253s
 
 Detected File: inputs/sym3.real
 Line Count: 5
 merge all bf done: (X2 AND X1 AND X0)
 Done.. Final Size = 6
-Total Time = 0.0266325ms
+Total Time = 0.0265703s
 
 Detected File: inputs/sym4.real
 Line Count: 7
 merge all bf done: (X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 8
-Total Time = 0.0269249ms
+Total Time = 0.026578s
 
 Detected File: inputs/sym5.real
 Line Count: 9
 merge all bf done: (X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 10
-Total Time = 0.0264888ms
+Total Time = 0.0263722s
 
 Detected File: inputs/sym6.real
 Line Count: 11
 merge all bf done: (X5 AND X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 12
-Total Time = 0.0265961ms
+Total Time = 0.0262791s
 
 Detected File: inputs/sym7.real
 Line Count: 13
 merge all bf done: (X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 14
-Total Time = 0.026727ms
+Total Time = 0.027819s
 
 Detected File: inputs/test.table
 Variable Max Count: 3
 Function Count: 3
-Read all graphs, construct and simplify done. Time = 53.167us
+Read all graphs, construct and simplify done. Time = 48.958us
 merge all bf done: (~X1 AND ~X2 AND X3) OR (~X1 AND X2) OR (X1)
-Combine all graphs done. Time = 60.916us
+Combine all graphs done. Time = 56.5us
 Done.. Final Size = 8
-Total Time = 132.833us
+Total Time = 126.167us
 
 Detected File: inputs/test2.table
 Variable Max Count: 5
 Function Count: 5
-Read all graphs, construct and simplify done. Time = 114.917us
+Read all graphs, construct and simplify done. Time = 111.833us
 merge all bf done: (X1 AND ~X2 AND X3 AND X4 AND X5) OR (X1 AND X2 AND ~X3 AND X4 AND X5)
-Combine all graphs done. Time = 83.75us
+Combine all graphs done. Time = 85.875us
 Done.. Final Size = 13
-Total Time = 216.75us
+Total Time = 215.875us
 
