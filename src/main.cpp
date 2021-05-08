@@ -49,15 +49,16 @@ void input_real(char* filename) {
     }
   }
 
+  auto start_time = std::chrono::steady_clock::now();
   RealParser realParser(filename);
   std::vector<Node*> nodes = realParser.parse();
-  auto start_time = std::chrono::steady_clock::now();
+  
   Node* graph = combine(nodes);
   auto end_time = std::chrono::steady_clock::now();
-  std::chrono::duration<double, std::micro> elapsed = end_time - start_time;
+  std::chrono::duration<double> elapsed = end_time - start_time;
   int size = graph->countNodes();
   std::cout << "Done.. Final Size = " << size << std::endl;
-  std::cout << "Total Time = " << elapsed.count() << "us" << std::endl;
+  std::cout << "Total Time = " << elapsed.count() << "s" << std::endl;
 }
 
 int main(int argc, char** argv) {
