@@ -13,7 +13,7 @@ std::vector<Node*> RealParser::parse() {
   char* fname = new char[this->filename.size() + 1];
   strcpy(fname, this->filename.c_str());
   QMDDcircuitRevlib(fname, c, 0, &edges);
-  std::cout << "Line Count: " << edges.size() << std::endl;
+  // std::cout << "Line Count: " << edges.size() << std::endl;
   delete[] fname;
 
   std::vector<Node*> ret;

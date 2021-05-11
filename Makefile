@@ -1,7 +1,7 @@
 cc = g++
 cflag = -I./include -I./include/qmdd -g -std=c++11
 
-objs = obj/Complex.o obj/Node.o obj/main.o obj/Util.o obj/BoolFunction.o obj/RealParser.o \
+objs = obj/Complex.o obj/Node.o obj/main.o obj/Util.o obj/BoolFunction.o obj/RealParser.o obj/sdd.o \
 obj/qmdd/qcost.o obj/qmdd/QMDDcircuit.o obj/qmdd/QMDDcomplex.o obj/qmdd/QMDDpackage.o obj/qmdd/QMDDreorder.o obj/qmdd/textFileUtilities.o obj/qmdd/timing.o
 
 all: bin/qmsdd
@@ -23,6 +23,9 @@ obj/BoolFunction.o: src/BoolFunction.cpp include/BoolFunction.hpp
 
 obj/RealParser.o: src/RealParser.cpp include/RealParser.hpp
 	$(cc) $(cflag) src/RealParser.cpp -c -o obj/RealParser.o
+
+obj/sdd.o: src/sdd.cpp include/sdd.hpp
+	$(cc) $(cflag) src/sdd.cpp -c -o obj/sdd.o
 
 obj/qmdd/qcost.o: src/qmdd/qcost.c include/qmdd/qcost.h
 	$(cc) $(cflag) $< -c -o $@

@@ -5,6 +5,7 @@
 #include "Node.hpp"
 #include "RealParser.hpp"
 #include "Util.hpp"
+#include "sdd.hpp"
 
 void input_table(char* filename) {
   std::fstream fstream(filename);
@@ -59,6 +60,15 @@ void input_real(char* filename) {
   int size = graph->countNodes();
   std::cout << "Done.. Final Size = " << size << std::endl;
   std::cout << "Total Time = " << elapsed.count() << "s" << std::endl;
+
+  std::cout << "Convert to SDD..." << std::endl;
+  start_time = std::chrono::steady_clock::now();
+  SDD* sdd = new SDD(graph);
+  int sdd_count = sdd->count();
+  end_time = std::chrono::steady_clock::now();
+  elapsed = end_time - start_time;
+  std::cout << "SDD count = " << sdd_count << std::endl;
+  std::cout << "Time = " << elapsed.count() << "s" << std::endl;
 }
 
 int main(int argc, char** argv) {
