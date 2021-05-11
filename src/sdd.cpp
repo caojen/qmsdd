@@ -15,7 +15,7 @@ int SDD::count() const {
   }
 
   double t = count * 0.5;
-  int res = 1;
+  int res = 2;
   if(t != (int)t) {
     res += (int) t + 1;
   } else {

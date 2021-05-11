@@ -1,106 +1,106 @@
 Detected File: inputs/5qbitcode.real
 merge all bf done: (X8 AND X7 AND X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 18
-Total Time = 0.0372078s
+Total Time = 0.0370994s
 Convert to SDD...
-SDD count = 6
-Time = 1.4458e-05s
+SDD count = 7
+Time = 1.4625e-05s
 
 Detected File: inputs/7qbitcode.real
 merge all bf done: (X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 14
-Total Time = 0.0292088s
+Total Time = 0.0287768s
 Convert to SDD...
-SDD count = 5
-Time = 1.025e-05s
+SDD count = 6
+Time = 1.0041e-05s
 
 Detected File: inputs/9qbitFigN1.real
 merge all bf done: (X8 AND X7 AND X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 18
-Total Time = 0.0267621s
+Total Time = 0.0275159s
 Convert to SDD...
-SDD count = 6
-Time = 1.2709e-05s
+SDD count = 7
+Time = 1.2625e-05s
 
 Detected File: inputs/9qbitFigN2.real
 merge all bf done: (X16 AND X15 AND X14 AND X13 AND X12 AND X11 AND X10 AND X9 AND X8 AND X7 AND X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 34
-Total Time = 0.0286903s
+Total Time = 0.0280523s
 Convert to SDD...
-SDD count = 10
-Time = 2.6208e-05s
+SDD count = 11
+Time = 2.55e-05s
 
 Detected File: inputs/empty2.real
 merge all bf done: (X0)
 Done.. Final Size = 2
-Total Time = 0.0265461s
+Total Time = 0.0266129s
 Convert to SDD...
-SDD count = 2
-Time = 4.834e-06s
+SDD count = 3
+Time = 5.166e-06s
 
 Detected File: inputs/empty3.real
 merge all bf done: (X0)
 Done.. Final Size = 2
-Total Time = 0.0266088s
+Total Time = 0.0262225s
 Convert to SDD...
-SDD count = 2
-Time = 2.75e-06s
+SDD count = 3
+Time = 2.667e-06s
 
 Detected File: inputs/grover3_gen.real
 merge all bf done: (X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 14
-Total Time = 0.0289717s
+Total Time = 0.0286663s
 Convert to SDD...
-SDD count = 5
-Time = 1e-05s
+SDD count = 6
+Time = 9.667e-06s
 
 Detected File: inputs/grover4_gen.real
 merge all bf done: (X8 AND X7 AND X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 18
-Total Time = 0.0307384s
+Total Time = 0.0299992s
 Convert to SDD...
-SDD count = 6
-Time = 1.2417e-05s
+SDD count = 7
+Time = 1.3375e-05s
 
 Detected File: inputs/grover5_gen.real
 merge all bf done: (X10 AND X9 AND X8 AND X7 AND X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 22
-Total Time = 0.0323651s
+Total Time = 0.0320163s
 Convert to SDD...
-SDD count = 7
-Time = 1.5291e-05s
+SDD count = 8
+Time = 1.5125e-05s
 
 Detected File: inputs/qFou3.real
 merge all bf done: (X2 AND X1 AND X0)
 Done.. Final Size = 6
-Total Time = 0.0276388s
+Total Time = 0.0291992s
 Convert to SDD...
-SDD count = 3
-Time = 4.916e-06s
+SDD count = 4
+Time = 5.459e-06s
 
 Detected File: inputs/qFou4.real
 merge all bf done: (X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 8
-Total Time = 0.0331336s
+Total Time = 0.0343392s
 Convert to SDD...
-SDD count = 3
-Time = 6.625e-06s
+SDD count = 4
+Time = 6.75e-06s
 
 Detected File: inputs/qFou5.real
 merge all bf done: (X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 10
-Total Time = 0.0691816s
+Total Time = 0.0720761s
 Convert to SDD...
-SDD count = 4
-Time = 7.167e-06s
+SDD count = 5
+Time = 7.25e-06s
 
 Detected File: inputs/qFou6.real
 merge all bf done: (X5 AND X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 12
-Total Time = 0.296726s
+Total Time = 0.296184s
 Convert to SDD...
-SDD count = 4
-Time = 8.625e-06s
+SDD count = 5
+Time = 8.458e-06s
 
 Detected File: inputs/qFou7.real
 This file has been excepted...
@@ -108,66 +108,66 @@ This file has been excepted...
 Detected File: inputs/sym2.real
 merge all bf done: (X1 AND X0)
 Done.. Final Size = 4
-Total Time = 0.0271625s
+Total Time = 0.026788s
 Convert to SDD...
-SDD count = 2
-Time = 3.75e-06s
+SDD count = 3
+Time = 3.958e-06s
 
 Detected File: inputs/sym3.real
 merge all bf done: (X2 AND X1 AND X0)
 Done.. Final Size = 6
-Total Time = 0.0261443s
+Total Time = 0.0265903s
 Convert to SDD...
-SDD count = 3
-Time = 4.958e-06s
+SDD count = 4
+Time = 5.125e-06s
 
 Detected File: inputs/sym4.real
 merge all bf done: (X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 8
-Total Time = 0.0268242s
+Total Time = 0.0267051s
 Convert to SDD...
-SDD count = 3
-Time = 6.041e-06s
+SDD count = 4
+Time = 6.084e-06s
 
 Detected File: inputs/sym5.real
 merge all bf done: (X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 10
-Total Time = 0.0269931s
+Total Time = 0.02627s
 Convert to SDD...
-SDD count = 4
-Time = 7.541e-06s
+SDD count = 5
+Time = 7.417e-06s
 
 Detected File: inputs/sym6.real
 merge all bf done: (X5 AND X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 12
-Total Time = 0.0265242s
+Total Time = 0.0282215s
 Convert to SDD...
-SDD count = 4
-Time = 8.5e-06s
+SDD count = 5
+Time = 8.417e-06s
 
 Detected File: inputs/sym7.real
 merge all bf done: (X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0)
 Done.. Final Size = 14
-Total Time = 0.0267169s
+Total Time = 0.0276644s
 Convert to SDD...
-SDD count = 5
+SDD count = 6
 Time = 9.917e-06s
 
 Detected File: inputs/test.table
 Variable Max Count: 3
 Function Count: 3
-Read all graphs, construct and simplify done. Time = 65.583us
+Read all graphs, construct and simplify done. Time = 53.291us
 merge all bf done: (~X1 AND ~X2 AND X3) OR (~X1 AND X2) OR (X1)
-Combine all graphs done. Time = 72.709us
+Combine all graphs done. Time = 59.5us
 Done.. Final Size = 8
-Total Time = 155.333us
+Total Time = 129.792us
 
 Detected File: inputs/test2.table
 Variable Max Count: 5
 Function Count: 5
-Read all graphs, construct and simplify done. Time = 112.542us
+Read all graphs, construct and simplify done. Time = 137.625us
 merge all bf done: (X1 AND ~X2 AND X3 AND X4 AND X5) OR (X1 AND X2 AND ~X3 AND X4 AND X5)
-Combine all graphs done. Time = 81.875us
+Combine all graphs done. Time = 102.5us
 Done.. Final Size = 13
-Total Time = 218.416us
+Total Time = 268.916us
 
