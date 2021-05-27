@@ -52,7 +52,10 @@ int count_nodes_help(const Node* root, std::set<const Node*>& set) {
     if(root->count != 0 || root->variables != nullptr) {
       set.insert(root);
       ret = 1;
-      ret += count_nodes_help(root->one, set);
+      if(root->one) {
+        // ret += 1;
+        ret += count_nodes_help(root->one, set);
+      }
     }
     return ret;
   }
@@ -62,12 +65,12 @@ int count_nodes_help(const Node* root, std::set<const Node*>& set) {
   int zero = count_nodes_help(root->zero, set);
 
   int ret = 1;
-  // if(root->one) {
-  //   ret += 1;
-  // }
-  // if(root->zero) {
-  //   ret += 1;
-  // }
+  if(root->one) {
+    ret += 1;
+  }
+  if(root->zero) {
+    ret += 1;
+  }
 
   return ret + one + zero;
 }

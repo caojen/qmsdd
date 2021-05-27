@@ -70,42 +70,60 @@ void BoolFunction::simplify() {
 }
 
 BoolFunction BoolFunction::bf_and(const BoolFunction& other) {
-  if(this->contains(other)) {
-    return *this;
-  }
-  if(other.contains(*this)) {
-    return other;
-  }
-
-  // for(auto& statement: other.statements) {
-  //   for(auto& self: this->statements) {
-  //     for(auto& atom: statement.atoms) {
-  //       if(!self.contains(atom)) {
-  //         self.atoms.push_back(atom);
-  //       }
-  //     }
-  //     std::sort(self.atoms.begin(), self.atoms.end());
-  //   }
-  // }
   BoolFunction ret;
-  for(auto other_statement: other.statements) {
-    for(auto self_statement: this->statements) {
-      for(auto other_statement_atom: other_statement.atoms) {
-        if(!self_statement.contains(other_statement_atom)) {
-          self_statement.atoms.push_back(other_statement_atom);
+  if(this->contains(other)) {
+    ret = *this;
+    ret.count = std::vector<int>();
+    ret.variables = std::vector<std::set<int>>();
+  } else if(other.contains(*this)) {
+    ret = other;
+    ret.count = std::vector<int>();
+    ret.variables = std::vector<std::set<int>>();
+  } else {
+    for(auto other_statement: other.statements) {
+      for(auto self_statement: this->statements) {
+        for(auto other_statement_atom: other_statement.atoms) {
+          if(!self_statement.contains(other_statement_atom)) {
+            self_statement.atoms.push_back(other_statement_atom);
+          }
         }
+        std::sort(self_statement.atoms.begin(), self_statement.atoms.end());
+        ret.statements.push_back(self_statement);
       }
-      std::sort(self_statement.atoms.begin(), self_statement.atoms.end());
-      ret.statements.push_back(self_statement);
     }
   }
-  if(other.count[0] != 1) {
-    ret.count.push_back(other.count[0]);
-    ret.variables.push_back(other.variables[0]);
+  for(int i = 0; i < other.count.size(); i++) {
+    if(other.count[i] > 1) {
+      // not exists then push
+      bool exists = false;
+      for(int j = 0; j < ret.variables.size(); j++) {
+        if(other.variables[i] == ret.variables[j]) {
+          exists = true;
+          break;
+        }
+      }
+      if(!exists) {
+        ret.count.push_back(other.count[i]);
+        ret.variables.push_back(other.variables[i]);
+      }
+    }
   }
-  if(this->count[0] != 1) {
-    ret.count.push_back(this->count[0]);
-    ret.variables.push_back(this->variables[0]);
+
+  for(int i = 0; i < this->count.size(); i++) {
+    if(this->count[i] > 1) {
+      // not exists then push
+      bool exists = false;
+      for(int j = 0; j < ret.variables.size(); j++) {
+        if(this->variables[i] == ret.variables[j]) {
+          exists = true;
+          break;
+        }
+      }
+      if(!exists) {
+        ret.count.push_back(this->count[i]);
+        ret.variables.push_back(this->variables[i]);
+      }
+    }
   }
   return ret;
 }

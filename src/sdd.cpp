@@ -22,5 +22,14 @@ int SDD::count() const {
     res += (int) t;
   }
 
+  Node* terminal = Node::findTerminal(this->graph);
+  while(terminal) {
+    res += 1;
+    terminal = terminal->one;
+    if(terminal) {
+      terminal = terminal->one;
+    }
+  }
+
   return res;
 }
