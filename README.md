@@ -21,7 +21,7 @@ After building ``./bin/qmsdd``, you can simply use:
 ```
 to run test cases.
 
-All test cases are stored in ``inputs`` directory.
+All test cases are stored in ``inputs`` directory. You can simply use ``./run_all_tests.sh`` to run all tests. The test results will show in ``stdout``.
 
 For example, ``./bin/qmsdd inputs/5qbitcode.real`` runs the file ``inputs/5qbitcode.real``.
 
