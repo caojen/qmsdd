@@ -1,173 +1,152 @@
 Detected File: inputs/5qbitcode.real
-after fix: (X8 AND X7 AND X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0) [9,{X1,X2,X3,X4,X5,X6,X7,X8,}][8,{X1,X2,X3,X4,X5,X6,X7,}][7,{X1,X2,X3,X4,X5,X6,}][6,{X1,X2,X3,X4,X5,}][3,{X1,X2,}][2,{X1,}][5,{X1,X2,X3,X4,}][4,{X1,X2,X3,}]
 Done.. Final Size = 34
-Total Time = 0.0328639s
+Total Time = 0.0304949s
 Convert to SDD...
 SDD count = 17
-Time = 1.9042e-05s
+Time = 1.8625e-05s
 
 Detected File: inputs/7qbitcode.real
-after fix: (X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0) [7,{X1,X2,X3,X4,X5,X6,}][6,{X1,X2,X3,X4,X5,}][5,{X1,X2,X3,X4,}][4,{X1,X2,X3,}][3,{X1,X2,}][2,{X1,}]
 Done.. Final Size = 26
-Total Time = 0.0288177s
+Total Time = 0.0290045s
 Convert to SDD...
 SDD count = 14
-Time = 1.4584e-05s
+Time = 1.4375e-05s
 
 Detected File: inputs/9qbitFigN1.real
-after fix: (X8 AND X7 AND X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0) [2,{X1,}][4,{X1,X2,X3,}][5,{X1,X2,X3,X4,}][7,{X1,X2,X3,X4,X5,X6,}][8,{X1,X2,X3,X4,X5,X6,X7,}][3,{X1,X2,}][6,{X1,X2,X3,X4,X5,}][9,{X1,X2,X3,X4,X5,X6,X7,X8,}]
 Done.. Final Size = 34
-Total Time = 0.0274544s
+Total Time = 0.0287501s
 Convert to SDD...
 SDD count = 17
-Time = 1.7459e-05s
+Time = 1.8042e-05s
 
 Detected File: inputs/9qbitFigN2.real
-after fix: (X16 AND X15 AND X14 AND X13 AND X12 AND X11 AND X10 AND X9 AND X8 AND X7 AND X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0) [10,{X1,X2,X3,X4,X5,X6,X7,X8,X9,}][11,{X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,}][12,{X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,}][13,{X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,}][14,{X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,}][15,{X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,}][16,{X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,}][17,{X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,}][8,{X1,X2,X3,X4,X5,X6,X7,}][9,{X1,X2,X3,X4,X5,X6,X7,X8,}][7,{X1,X2,X3,X4,X5,X6,}][5,{X1,X2,X3,X4,}][6,{X1,X2,X3,X4,X5,}][4,{X1,X2,X3,}][2,{X1,}][3,{X1,X2,}]
 Done.. Final Size = 66
-Total Time = 0.0328416s
+Total Time = 0.0366011s
 Convert to SDD...
 SDD count = 29
-Time = 3.2958e-05s
+Time = 3.6708e-05s
 
 Detected File: inputs/empty2.real
-after fix: (X0) 
 Done.. Final Size = 2
-Total Time = 0.0268488s
+Total Time = 0.0291209s
 Convert to SDD...
 SDD count = 5
-Time = 6.292e-06s
+Time = 5.292e-06s
 
 Detected File: inputs/empty3.real
-after fix: (X0) 
 Done.. Final Size = 2
-Total Time = 0.0267932s
+Total Time = 0.0286291s
 Convert to SDD...
 SDD count = 5
-Time = 5.041e-06s
+Time = 5.5e-06s
 
 Detected File: inputs/grover3_gen.real
-after fix: (X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0) [5,{X0,X1,X2,X3,X4,}][6,{X0,X1,X2,X3,X4,X5,}][7,{X0,X1,X2,X3,X4,X5,X6,}][4,{X0,X1,X2,X3,}]
 Done.. Final Size = 22
-Total Time = 0.0312225s
+Total Time = 0.0341549s
 Convert to SDD...
 SDD count = 12
-Time = 1.4125e-05s
+Time = 1.4833e-05s
 
 Detected File: inputs/grover4_gen.real
-after fix: (X8 AND X7 AND X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0) [6,{X0,X1,X2,X3,X4,X5,}][7,{X0,X1,X2,X3,X4,X5,X6,}][8,{X0,X1,X2,X3,X4,X5,X6,X7,}][9,{X0,X1,X2,X3,X4,X5,X6,X7,X8,}][5,{X0,X1,X2,X3,X4,}]
 Done.. Final Size = 28
-Total Time = 0.0344703s
+Total Time = 0.035885s
 Convert to SDD...
 SDD count = 14
-Time = 1.7541e-05s
+Time = 1.8083e-05s
 
 Detected File: inputs/grover5_gen.real
-after fix: (X10 AND X9 AND X8 AND X7 AND X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0) [7,{X0,X1,X2,X3,X4,X5,X6,}][8,{X0,X1,X2,X3,X4,X5,X6,X7,}][9,{X0,X1,X2,X3,X4,X5,X6,X7,X8,}][10,{X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,}][11,{X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,}][6,{X0,X1,X2,X3,X4,X5,}]
 Done.. Final Size = 34
-Total Time = 0.0389837s
+Total Time = 0.0405388s
 Convert to SDD...
 SDD count = 16
-Time = 2.2583e-05s
+Time = 2.525e-05s
 
 Detected File: inputs/qFou3.real
-after fix: (X2 AND X1 AND X0) [3,{X1,X2,}][2,{X1,}]
 Done.. Final Size = 10
-Total Time = 0.0275472s
+Total Time = 0.0304889s
 Convert to SDD...
 SDD count = 8
-Time = 8.083e-06s
+Time = 9.167e-06s
 
 Detected File: inputs/qFou4.real
-after fix: (X3 AND X2 AND X1 AND X0) [2,{X1,}][3,{X1,X2,}][4,{X1,X2,X3,}]
 Done.. Final Size = 14
-Total Time = 0.0330119s
+Total Time = 0.0346579s
 Convert to SDD...
 SDD count = 9
-Time = 9.584e-06s
+Time = 9.958e-06s
 
 Detected File: inputs/qFou5.real
-after fix: (X4 AND X3 AND X2 AND X1 AND X0) [2,{X1,}][4,{X1,X2,X3,}][5,{X1,X2,X3,X4,}][3,{X1,X2,}]
 Done.. Final Size = 18
-Total Time = 0.069415s
+Total Time = 0.0710281s
 Convert to SDD...
 SDD count = 11
-Time = 1.1084e-05s
+Time = 1.1875e-05s
 
 Detected File: inputs/qFou6.real
-after fix: (X5 AND X4 AND X3 AND X2 AND X1 AND X0) [3,{X1,X2,}][4,{X1,X2,X3,}][2,{X1,}][5,{X1,X2,X3,X4,}][6,{X1,X2,X3,X4,X5,}]
 Done.. Final Size = 22
-Total Time = 0.295901s
+Total Time = 0.304019s
 Convert to SDD...
 SDD count = 12
-Time = 1.2708e-05s
+Time = 1.2792e-05s
 
 Detected File: inputs/qFou7.real
 This file has been excepted...
 
 Detected File: inputs/sym2.real
-after fix: (X1 AND X0) [2,{X1,}]
 Done.. Final Size = 6
-Total Time = 0.0267828s
+Total Time = 0.0276946s
 Convert to SDD...
 SDD count = 6
-Time = 6.375e-06s
+Time = 6.75e-06s
 
 Detected File: inputs/sym3.real
-after fix: (X2 AND X1 AND X0) [2,{X1,}][3,{X1,X2,}]
 Done.. Final Size = 10
-Total Time = 0.0266414s
+Total Time = 0.0271169s
 Convert to SDD...
 SDD count = 8
-Time = 7.959e-06s
+Time = 8.167e-06s
 
 Detected File: inputs/sym4.real
-after fix: (X3 AND X2 AND X1 AND X0) [2,{X1,}][3,{X1,X2,}][4,{X1,X2,X3,}]
 Done.. Final Size = 14
-Total Time = 0.0265768s
+Total Time = 0.0273528s
 Convert to SDD...
 SDD count = 9
-Time = 9.583e-06s
+Time = 9.709e-06s
 
 Detected File: inputs/sym5.real
-after fix: (X4 AND X3 AND X2 AND X1 AND X0) [2,{X1,}][3,{X1,X2,}][4,{X1,X2,X3,}][5,{X1,X2,X3,X4,}]
 Done.. Final Size = 18
-Total Time = 0.0265788s
+Total Time = 0.0274295s
 Convert to SDD...
 SDD count = 11
-Time = 1.125e-05s
+Time = 1.1625e-05s
 
 Detected File: inputs/sym6.real
-after fix: (X5 AND X4 AND X3 AND X2 AND X1 AND X0) [2,{X1,}][3,{X1,X2,}][4,{X1,X2,X3,}][5,{X1,X2,X3,X4,}][6,{X1,X2,X3,X4,X5,}]
 Done.. Final Size = 22
-Total Time = 0.0272257s
+Total Time = 0.0276382s
 Convert to SDD...
 SDD count = 12
-Time = 1.2666e-05s
+Time = 1.275e-05s
 
 Detected File: inputs/sym7.real
-after fix: (X6 AND X5 AND X4 AND X3 AND X2 AND X1 AND X0) [2,{X1,}][3,{X1,X2,}][4,{X1,X2,X3,}][5,{X1,X2,X3,X4,}][6,{X1,X2,X3,X4,X5,}][7,{X1,X2,X3,X4,X5,X6,}]
 Done.. Final Size = 26
-Total Time = 0.0277982s
+Total Time = 0.027767s
 Convert to SDD...
 SDD count = 14
-Time = 1.4291e-05s
+Time = 1.4834e-05s
 
 Detected File: inputs/test.table
 Variable Max Count: 3
 Function Count: 3
-Read all graphs, construct and simplify done. Time = 50us
-after fix: (~X1 AND ~X2 AND X3) OR (~X1 AND X2) OR (X1) [2,{X1,X2,}][3,{X1,X2,X3,}]
-Combine all graphs done. Time = 112us
+Read all graphs, construct and simplify done. Time = 58.375us
+Combine all graphs done. Time = 112.125us
 Done.. Final Size = 12
-Total Time = 180.458us
+Total Time = 189.583us
 
 Detected File: inputs/test2.table
 Variable Max Count: 5
 Function Count: 5
-Read all graphs, construct and simplify done. Time = 113.666us
-after fix: (X1 AND ~X2 AND X3 AND X4 AND X5) OR (X1 AND X2 AND ~X3 AND X4 AND X5) [2,{X3,}]
-Combine all graphs done. Time = 131.625us
+Read all graphs, construct and simplify done. Time = 134.625us
+Combine all graphs done. Time = 136.084us
 Done.. Final Size = 15
-Total Time = 261.666us
+Total Time = 294.125us
 

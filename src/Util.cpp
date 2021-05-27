@@ -174,7 +174,7 @@ Node* combine(std::vector<Node*>& roots) {
 
   // std::cout << "merge all bf done: " << *ret << std::endl;
   BoolFunction::remove(ret);
-  std::cout << "after fix: " << *ret << std::endl;
+  // std::cout << "after fix: " << *ret << std::endl;
   Node* r = ret->convertToNode();
   // print_graph(r, "after merge: ");
   Node* terminal = Node::findTerminal(r);
