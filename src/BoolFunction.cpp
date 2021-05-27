@@ -17,6 +17,15 @@ std::ostream& operator<<(std::ostream& os, const BoolFunction& self) {
         os << " OR ";
       }
     }
+    os << " ";
+    for(int i = 0; i < self.count.size(); i++) {
+      os << "[";
+      os << self.count[i] << ",{";
+      for(auto s: self.variables[i]) {
+        os << "X" << s << ",";
+      }
+      os << "}]";
+    }
   }
 
   return os;
@@ -26,6 +35,14 @@ void init_from_node_help(Node* root, Statement statement, BoolFunction* bf) {
   if(root->isTerminal()) {
     bf->append(statement);
   } else {
+    if(bf->variables.size() == 0) {
+      std::set<int> s;
+      s.insert(root->variable);
+      bf->variables.push_back(s);
+    } else {
+      bf->variables[0].insert(root->variable);
+    }
+
     if(root->zero) {
       Statement f = statement;
       f.append(Atom(root->variable, false));
@@ -43,6 +60,7 @@ BoolFunction* BoolFunction::initFromNode(Node* root) {
   BoolFunction* bf = new BoolFunction;
   Statement statement;
   init_from_node_help(root, statement, bf);
+  bf->count.push_back(bf->variables[0].size());
   // std::cout << "create bf: " << *bf << std::endl;
   return bf;
 }
@@ -59,18 +77,37 @@ BoolFunction BoolFunction::bf_and(const BoolFunction& other) {
     return other;
   }
 
-  for(auto& statement: other.statements) {
-    for(auto& self: this->statements) {
-      for(auto& atom: statement.atoms) {
-        if(!self.contains(atom)) {
-          self.atoms.push_back(atom);
+  // for(auto& statement: other.statements) {
+  //   for(auto& self: this->statements) {
+  //     for(auto& atom: statement.atoms) {
+  //       if(!self.contains(atom)) {
+  //         self.atoms.push_back(atom);
+  //       }
+  //     }
+  //     std::sort(self.atoms.begin(), self.atoms.end());
+  //   }
+  // }
+  BoolFunction ret;
+  for(auto other_statement: other.statements) {
+    for(auto self_statement: this->statements) {
+      for(auto other_statement_atom: other_statement.atoms) {
+        if(!self_statement.contains(other_statement_atom)) {
+          self_statement.atoms.push_back(other_statement_atom);
         }
       }
-      std::sort(self.atoms.begin(), self.atoms.end());
+      std::sort(self_statement.atoms.begin(), self_statement.atoms.end());
+      ret.statements.push_back(self_statement);
     }
   }
-
-  return *this;
+  if(other.count[0] != 1) {
+    ret.count.push_back(other.count[0]);
+    ret.variables.push_back(other.variables[0]);
+  }
+  if(this->count[0] != 1) {
+    ret.count.push_back(this->count[0]);
+    ret.variables.push_back(this->variables[0]);
+  }
+  return ret;
 }
 
 bool BoolFunction::contains(const BoolFunction& other) const {
@@ -166,7 +203,7 @@ bool Atom::operator<(const Atom& other) const {
 
 Node* BoolFunction::convertToNode() const {
   Node* ret = nullptr;
-  Node* one = Node::makeTerminal(1);
+  Node* one = Node::makePrefix(this->count, this->variables, 1);
 
   if(this->statements.size() == 0) {
     return ret;
@@ -212,4 +249,72 @@ Node* BoolFunction::convertToNode() const {
   }
 
   return ret;
+}
+
+void BoolFunction::fix(std::vector<BoolFunction*>& bfs) {
+  int size = bfs.size();
+
+  std::set<BoolFunction*> should_remove_bfs_item;
+
+  for(int i = 0; i < size; i++) {
+    BoolFunction* bf = bfs[i];
+    if(bf->count[0] == 1) {
+      continue;
+    }
+
+    for(int j = 0; j < size; j++) {
+      if(i == j) {
+        continue;
+      }
+
+      if(bfs[j]->count[0] == 1) {
+        std::set<int> should_remove;
+        for(auto x: bfs[j]->variables[0]) {
+          for(auto y: bf->variables[0]) {
+            if(x == y) {
+              should_remove_bfs_item.insert(bfs[j]);
+              should_remove.insert(x);
+            }
+          }
+        }
+
+        for(auto x: should_remove) {
+          auto it = bf->variables[0].find(x);
+          bf->variables[0].erase(it);
+        }
+      }
+    }
+
+  }
+  for(auto s: should_remove_bfs_item) {
+    for(auto it = bfs.begin(); it != bfs.end(); ++it) {
+      if(*it == s) {
+        bfs.erase(it);
+        break;
+      }
+    }
+  }
+}
+
+void BoolFunction::remove(BoolFunction* bf) {
+  std::set<int> should_remove;
+  int size = bf->count.size();
+  for(int i = 0; i < size; i++) {
+    if(bf->count[i] == 1) {
+      should_remove.insert(i);
+    }
+  }
+
+  std::vector<int> count;
+  std::vector<std::set<int>> variables;
+
+  for(int i = 0; i < size; i++) {
+    if(should_remove.find(i) == should_remove.end()) {
+      count.push_back(bf->count[i]);
+      variables.push_back(bf->variables[i]);
+    }
+  }
+
+  bf->count = count;
+  bf->variables = variables;
 }

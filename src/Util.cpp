@@ -41,8 +41,13 @@ void insert_terminal(Node* root, int path, Complex terminal, int n) {
   insert_terminal(t, path, terminal, n - 1);
 }
 
-void simplify(Node*& root) {
-  Node* one = Node::makeTerminal(1);
+void simplify(Node*& root, Node* terminal) {
+  Node* one;
+  if(terminal == nullptr) {
+    one = Node::makeTerminal(1);
+  } else {
+    one = terminal; 
+  }
 
   // get all nodes
   std::queue<Node*> queue;
@@ -156,20 +161,24 @@ Node* combine(std::vector<Node*>& roots) {
     nodeCounts.push_back(count);
   }
 
+  BoolFunction::fix(bfs);
+
   BoolFunction* ret = bfs[0];
-  // std::cout << "init ret(bfs[0]) = " << *ret << std::endl;
+  std::cout << "init ret(bfs[0]) = " << *ret << std::endl;
   int size = bfs.size();
   for(int i = 1; i < size; i++) {
-    // std::cout << "next bfs" << i << " " << *bfs[i] << std::endl;
+    std::cout << "next bfs" << i << " " << *bfs[i] << std::endl;
     *ret = ret->bf_and(*bfs[i]);
-    // std::cout << "merge to " << *ret << std::endl;
+    std::cout << "merge to " << *ret << std::endl;
   }
 
   std::cout << "merge all bf done: " << *ret << std::endl;
-
+  BoolFunction::remove(ret);
+  std::cout << "after fix: " << *ret << std::endl;
   Node* r = ret->convertToNode();
-  // print_graph(r, "after merge: ");
-  simplify(r);
+  print_graph(r, "after merge: ");
+  Node* terminal = Node::findTerminal(r);
+  simplify(r, terminal);
   // print_graph(r, "after simplify: ");
   return r;
 }

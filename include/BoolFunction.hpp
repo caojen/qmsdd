@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <set>
 
 #include "Node.hpp"
 #include "Util.hpp"
@@ -14,6 +15,8 @@ class Atom;
 class BoolFunction {
 public:
   std::vector<Statement> statements;
+  std::vector<std::set<int>> variables;
+  std::vector<int> count;
 
   BoolFunction();
   void append(const Statement& statement);
@@ -26,6 +29,8 @@ public:
   bool contains(const BoolFunction& other) const;
 
   Node* convertToNode() const;
+  static void fix(std::vector<BoolFunction*>&);
+  static void remove(BoolFunction*);
 };
 
 class Statement {

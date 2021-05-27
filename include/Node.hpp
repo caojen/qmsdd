@@ -1,4 +1,5 @@
 #pragma once
+#include <set>
 
 #include "Complex.hpp"
 
@@ -12,6 +13,9 @@ public:
   Node* one;
 
   Node* parent;
+
+  int count;
+  std::set<int>* variables;
 
   Node();
 
@@ -27,4 +31,7 @@ public:
   static Node* initWithTable(char** table, int x, int y, int n);
 
   bool operator==(const Node& other) const;
+
+  static Node* makePrefix(const std::vector<int>& counts, const std::vector<std::set<int>>& variables, Complex terminal);
+  static Node* findTerminal(Node* root);
 };

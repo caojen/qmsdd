@@ -9,6 +9,8 @@ Node::Node() {
   this->zero = nullptr;
   this->one = nullptr;
   this->parent = nullptr;
+  this->count = 0;
+  this->variables = nullptr;
 }
 
 Node* Node::makeTerminal(Complex terminal) {
@@ -40,27 +42,41 @@ Node* Node::makeVariable(int variable) {
 }
 
 int count_nodes_help(const Node* root, std::set<const Node*>& set) {
-  if(root == nullptr || root->isTerminal() || set.find(root) != set.end()) {
+
+  if(root == nullptr || set.find(root) != set.end()) {
     return 0;
   }
+  
+  if(root->isTerminal()) {
+    int ret = 0;
+    if(root->count != 0 || root->variables != nullptr) {
+      set.insert(root);
+      ret = 1;
+      ret += count_nodes_help(root->one, set);
+    }
+    return ret;
+  }
+
   set.insert(root);
   int one = count_nodes_help(root->one, set);
   int zero = count_nodes_help(root->zero, set);
 
   int ret = 1;
-  if(root->one) {
-    ret += 1;
-  }
-  if(root->zero) {
-    ret += 1;
-  }
+  // if(root->one) {
+  //   ret += 1;
+  // }
+  // if(root->zero) {
+  //   ret += 1;
+  // }
 
   return ret + one + zero;
 }
 
 int Node::countNodes() const {
   std::set<const Node*> set;
-  return count_nodes_help(this, set);
+  
+  int ret = count_nodes_help(this, set);
+  return ret;
 }
 
 Node* Node::initWithTable(char** table, int x, int y, int n) {
@@ -140,6 +156,52 @@ bool Node::operator==(const Node& other) const {
         }
       }
       return true;
+    }
+  }
+}
+
+Node* Node::makePrefix(const std::vector<int>& counts, const std::vector<std::set<int>>& variables, Complex terminal) {
+  Node* ret = nullptr;
+  Node* ptr = ret;
+  int size = counts.size();
+  for(int i = 0; i < size; i++) {
+    Node* t = nullptr;
+    t = new Node();
+    t->variable = -1;
+    t->terminal = -1;
+    t->count = counts[i];
+    t->one = new Node();
+    t->one->variable = -1;
+    t->one->terminal = -1;
+    t->one->variables = new std::set<int>();
+    for(auto& v: variables[i]) {
+      t->one->variables->insert(v);
+    }
+    if(ret == nullptr) {
+      ret = t;
+      ptr = t;
+    } else {
+      ptr->one->one = t;
+      ptr = ptr->one->one;
+    }
+  }
+  if(ret == nullptr) {
+    ret = Node::makeTerminal(terminal);
+  } else {
+    ptr->one->one = Node::makeTerminal(terminal);
+  }
+
+  return ret;
+}
+
+Node* Node::findTerminal(Node* root) {
+  if(root->isTerminal()) {
+    return root;
+  } else {
+    if(root->one) {
+      return Node::findTerminal(root->one);
+    } else {
+      return Node::findTerminal(root->zero);
     }
   }
 }

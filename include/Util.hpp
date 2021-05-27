@@ -9,7 +9,7 @@
 #include "QMDDpackage.h"
 
 void insert_terminal(Node* root, int path, Complex terminal, int n);
-void simplify(Node*& root);
+void simplify(Node*& root, Node* terminal = nullptr);
 Node* combine(std::vector<Node*>& roots);
 void print_graph(Node* root, std::string prefix);
 void print_graph(QMDDedge& edge, std::string prefix);
